@@ -1,6 +1,6 @@
 # Altius Gym Management System
 
-A modern, full-stack gym management system built with React, Node.js, Express, and MongoDB. This system is designed to manage up to 200 gym members per month using completely free and open-source technologies.
+A modern, full-stack gym management system built with React, Node.js, Express, and MongoDB. This system is designed to manage up to 200+ gym members per month using completely free and open-source technologies.
 
 ## 🌟 Features
 
