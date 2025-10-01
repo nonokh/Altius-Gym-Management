@@ -87,7 +87,7 @@ Successfully migrated the GYM-One project to a modern technology stack while:
 ## 📁 Project Structure
 
 ```
-Hello-World/
+Altius-Gym-Management/
 │
 ├── 📄 Documentation (7 files)
 │   ├── README.md              # Main documentation
@@ -560,7 +560,7 @@ git push origin main
 
 ## 📞 Contact & Links
 
-**Project Repository:** https://github.com/nonokh/Hello-World  
+**Project Repository:** https://github.com/nonokh/Altius-Gym-Management  
 **Altius Website:** https://altius.vercel.app/  
 **Documentation:** See README.md and other guides  
 **Issues:** GitHub Issues  
