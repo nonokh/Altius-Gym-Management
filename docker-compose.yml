@@ -1,0 +1,80 @@
+# Docker Compose for Altius Gym Management System
+# This is optional - for easy local development with MongoDB
+
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: altius-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: altius-gym
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - altius-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: altius-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+      MONGODB_URI: mongodb://admin:admin123@mongodb:27017/altius-gym?authSource=admin
+      JWT_SECRET: altius-gym-secret-docker
+      JWT_EXPIRE: 7d
+      CORS_ORIGIN: http://localhost:5173
+    depends_on:
+      - mongodb
+    networks:
+      - altius-network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: altius-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+    depends_on:
+      - backend
+    networks:
+      - altius-network
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  altius-network:
+    driver: bridge
+
+# Usage:
+# 1. Install Docker and Docker Compose
+# 2. Run: docker-compose up -d
+# 3. Access frontend: http://localhost:5173
+# 4. Access backend: http://localhost:5000
+# 5. MongoDB: mongodb://admin:admin123@localhost:27017
+#
+# To stop: docker-compose down
+# To view logs: docker-compose logs -f
+# To rebuild: docker-compose up -d --build
