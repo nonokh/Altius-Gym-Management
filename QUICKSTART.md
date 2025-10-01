@@ -30,8 +30,8 @@ Download from https://www.mongodb.com/try/download/community
 
 ```bash
 # Clone the repository
-git clone https://github.com/nonokh/Hello-World.git
-cd Hello-World
+git clone https://github.com/nonokh/Altius-Gym-Management.git
+cd Altius-Gym-Management
 
 # Setup Backend
 cd backend

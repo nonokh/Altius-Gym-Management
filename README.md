@@ -64,8 +64,8 @@ A modern, full-stack gym management system built with React, Node.js, Express, a
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/nonokh/Hello-World.git
-cd Hello-World
+git clone https://github.com/nonokh/Altius-Gym-Management.git
+cd Altius-Gym-Management
 ```
 
 ### 2. Backend Setup
@@ -127,7 +127,7 @@ After running the seed script, you can login with:
 ## 📁 Project Structure
 
 ```
-Hello-World/
+Altius-Gym-Management/
 ├── backend/
 │   ├── src/
 │   │   ├── config/         # Configuration files
